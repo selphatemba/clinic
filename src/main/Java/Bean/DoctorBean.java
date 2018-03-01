@@ -9,13 +9,15 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.ArrayList;
 
+import static Bean.UserBeanI.User.DOCTOR;
+
 /**
  * Created by SELPHA on 19/2/2018.
  */
 
 //creates a managed bean called "doctorbean"
 @RequestScoped
-@DoctorBeanI
+@UserBeanI(choice = DOCTOR)
 public class DoctorBean implements BeanI {
     @Inject
     @DoctorDaoI

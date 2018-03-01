@@ -14,4 +14,10 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 @Target({ElementType.FIELD, ElementType.TYPE, ElementType.METHOD, ElementType.PARAMETER})
 public @interface UserBeanI {
+User choice();
+
+enum User{
+    USER,DOCTOR,PATIENT
+}
+
 }

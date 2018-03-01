@@ -16,13 +16,15 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import static Bean.UserBeanI.User.USER;
+
 /**
  * Created by SELPHA on 21/2/2018.
  */
 @WebServlet(urlPatterns = "/login")
 public class Login extends HttpServlet {
     @Inject
-    @UserBeanI
+    @UserBeanI(choice = USER)
     private BeanI beanI;
     User user=new User();
     @Override

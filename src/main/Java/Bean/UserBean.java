@@ -9,13 +9,15 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import static Bean.UserBeanI.User.USER;
+
 /**
  * Created by SELPHA on 19/2/2018.
  */
 
 //creates a managed bean called "userbean"
 @RequestScoped
-@UserBeanI
+@UserBeanI(choice = USER)
 public class UserBean implements BeanI {
     @Inject
     @UserDaoI
