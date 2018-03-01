@@ -1,34 +1,36 @@
-<html>
+/*<html>
 <head>
-    <title>HOME</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="jquery.min.js"></script>
+    <center><%@include file="Header.jsp"%></center>
+    <link rel="stylesheet"  href="css/bootstrap.min.css" id="bootstrap-css">
+    <link rel="stylesheet" href="css/custom.css">
     <script src="js/bootstrap.min.js"></script>
+    <script src="jquery-1.11.1.min.js"></script>
 </head>
-<body>
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">WebSiteName</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Page 1-1</a></li>
-                    <li><a href="#">Page 1-2</a></li>
-                    <li><a href="#">Page 1-3</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Page 2</a></li>
-            <li><a href="#">Page 3</a></li>
-        </ul>
-    </div>
-</nav>
 
+<body>
 <div class="container">
-    <h3>Navbar With Dropdown</h3>
-    <p>This example adds a dropdown menu for the "Page 1" button in the navigation bar.</p>
+    <div class="row">
+        <div class="col-xs-6">
+            <a href="PatientRegister.jsp" id="register-form-link"><big><font color="#faebd7">Patient</font> </big></a>&nbsp;
+        </div>
+        <div class="col-xs-6">
+            <a href="DoctorRegister.jsp" id="register-form-link"><big><font color="#faebd7">Doctor</font></big></a>&nbsp;
+        </div>
+        <div class="col-xs-6">
+            <a href="index.jsp" id="register-form-link"><big><font color="#faebd7">Pharmacy</font></big></a>&nbsp;
+        </div>
+        <div class="col-xs-6">
+            <a href="index.jsp" id="register-form-link"><big><font color="#faebd7">Receptionist</font></big></a>&nbsp;
+        </div>
+        <div class="col-xs-6">
+            <a href="PatientBooking.jsp" id="register-form-link"><big><font color="#faebd7">Admin</font></big></a>&nbsp;
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <footer><a href="index.jsp" id="register-form-link">Logout</a></footer>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
-</html>
+</html>-->

@@ -7,16 +7,26 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>CASHIER</title>
+<title>login page</title>
+<center><%@include file="Header.jsp"%></center>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/custom.css">
+<script src="js/bootstrap.min.js"></script>
+<script src="js/good.js"></script>
 </head>
 <body>
-<form action="PayForService.jsp" method="post">
+<div class="container">
+    <div class="card card-container">
+        <form class="form-signin" action="PayForService.jsp" method="post">
+            PatientID:<input type="text" id="jobID" class="form-control" placeholder="Patient ID" required name="PatientID"/><br>
+            Service:<input type="text" id="inputPassword" class="form-control" placeholder="Consultation,LabTest,Medicine"  name="service" required/><br>
+            Amount:<input type="text" id="jobID" class="form-control" placeholder="User ID" required name="Amount"/><br>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Pay</button>
 
-    PatientID:<input type="text" name="PatientID"/><br/><br/>
-    Service:<input type="text" placeholder="Consultation,LabTest,Medicine" name="service"/><br/><br/>
-    Amount:<input type="number" name="Amount"/><br/><br/>
-    <input type="submit" value="Submit"/>
-</form>
+            <hr>
+        </form>
+    </div>
+</div>
+<%@include file="Footer.jsp"%>
 </body>
 </html>

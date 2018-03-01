@@ -8,17 +8,48 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>DOCTOR REGISTRATION</title>
+    <center><%@include file="Header.jsp"%></center>
+    <link rel="stylesheet"  href="css/bootstrap.min.css" id="bootstrap-css">
+    <link rel="stylesheet" href="css/registration.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/registration.js"></script>
+    <script src="jquery-1.11.1.min.js"></script>
 </head>
 <body>
-<h2>Enter New Doctor's details to register</h2>
-<form action="Management2.jsp" method="post">
-
-    FirstName:<input type="text" name="firstname"/><br/><br/>
-    SecondName:<input type="text" name="secondname"/><br/><br/>
-    DoctorID:<input type="text" required name="Did"/><br/><br/>
-    <input type="submit" value="register"/>
-
-</form>
+<div class="container">
+    <div class="card card-container">
+        <h1 class="well">Doctor Registration</h1>
+        <div class="col-lg-12 well">
+            <div class="row">
+                <form class="form-signin" id="form" action="/ClinicMis2/registration" method="post" onsubmit="return checkForm(this);">
+                    <div class="col-sm-12">
+                        <div class="col-sm-6 form-group">
+                            <label>First Name</label>
+                            <input type="text" placeholder="Enter First Name Here.." class="form-control" name="firsrname">
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label>Second Name</label>
+                            <input type="text" placeholder="Enter Last Name Here.." class="form-control" name="secondname">
+                        </div>
+                       <div class="row">
+                            <div class="col-sm-6 form-group">
+                                <label>ID Number</label>
+                                <input type="text" placeholder="ID Number" class="form-control" name="idnumber">
+                            </div>
+                            <div class="col-sm-4 form-group">
+                                <label>Doctor ID</label>
+                                <input type="text" placeholder="Doctor ID" class="form-control" name="Did">
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">register</button>
+                            <hr>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<%@include file="Footer.jsp"%>
 </body>
 </html>
+

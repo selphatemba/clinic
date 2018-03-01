@@ -7,16 +7,24 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>Patient/Doctor Booking</title>
+<title>login page</title>
+<center><%@include file="Header.jsp"%></center>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/custom.css">
+<script src="js/bootstrap.min.js"></script>
+<script src="js/good.js"></script>
 </head>
 <body>
-<h2>Patient/Doctor Booking</h2>
-<form action="Management3.jsp" method="post">
-    DoctorID:<input type="text" name="doctorid"/><br/><br/>
-    PatientID:<input type="text" name="patientid"/><br/><br/>
-    <input type="submit" value="Book"/>
-
-</form>
+<div class="container">
+    <div class="card card-container">
+        <h2>Patient/Doctor Booking</h2>
+        <form class="form-signin" action="Management3.jsp" method="post">
+            Doctor ID:<input type="text" id="jobID" class="form-control" placeholder="Doctor ID" required name="doctorid"/><br>
+            Patient ID:<input type="text" id="inputPassword" class="form-control" placeholder="Patient ID"  name="patientid" required/><br>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Book</button>>
+        </form>
+    </div>
+</div>
+<%@include file="Footer.jsp"%>
 </body>
 </html>

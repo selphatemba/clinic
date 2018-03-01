@@ -14,6 +14,10 @@ body, html {
     max-width: 350px;
     padding: 40px 40px;
 }
+.card-container.card1 {
+    max-width: 350px;
+    padding: 40px 40px;
+}
 
 /*
  * Card component
