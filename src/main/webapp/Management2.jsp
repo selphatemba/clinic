@@ -12,7 +12,7 @@
 </head>
 <body>
 <%@ page import="Pojo.Doctor" %>
-<%@ page import="Bean.AdminBean" %>
+<%@ page import="Bean.BeanImplementation.AdminBean" %>
 <%@ page import="javax.inject.Inject" %>
 <%@ page import="javax.inject.Named" %>
 <%@ page import="Bean.DoctorBeanI" %>

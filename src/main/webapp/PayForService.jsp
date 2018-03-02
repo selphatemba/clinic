@@ -15,7 +15,7 @@
 </head>
 <body>
 <%@page import="Pojo.Payment" %>
-<%@page import="Bean.AdminBean" %>
+<%@page import="Bean.BeanImplementation.AdminBean" %>
 <%@ page import="Pojo.Service" %>
 <%@ page import="Pojo.Patient" %>
 <%@page errorPage="MyErrorPage.jsp" %>

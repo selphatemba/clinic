@@ -1,4 +1,4 @@
-package Dao;
+package Dao.DaoInterface;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.ElementType;
@@ -13,5 +13,5 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Qualifier
 @Retention(RUNTIME)
 @Target({ElementType.FIELD, ElementType.TYPE, ElementType.METHOD, ElementType.PARAMETER})
-public @interface UserDaoI {
+public @interface DoctorDaoI {
 }

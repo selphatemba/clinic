@@ -1,5 +1,6 @@
-package Dao;
+package Dao.DaoImplementation;
 
+import Dao.DaoInterface.AdminInterface;
 import Pojo.*;
 
 
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Created by SELPHA on 14/2/2018.
  */
-public class AdminDao implements AdminInterface{
+public class AdminDao implements AdminInterface {
     DBUtil util=null;
 
 //constructor creates util object

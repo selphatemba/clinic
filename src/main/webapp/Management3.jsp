@@ -15,7 +15,7 @@
 <%@page import="Pojo.Booking" %>
 <%@page import="Pojo.Doctor" %>
 <%@page import="Pojo.Patient" %>
-<%@page import="Bean.AdminBean" %>
+<%@page import="Bean.BeanImplementation.AdminBean" %>
 <%@page errorPage="MyErrorPage.jsp" %>
 
 

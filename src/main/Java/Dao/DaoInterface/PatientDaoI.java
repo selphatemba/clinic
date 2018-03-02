@@ -1,4 +1,4 @@
-package Dao;
+package Dao.DaoInterface;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.ElementType;

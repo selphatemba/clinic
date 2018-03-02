@@ -1,14 +1,12 @@
-package Dao;
+package Dao.DaoImplementation;
 
+import Dao.DaoInterface.DaoI;
+import Dao.DaoInterface.DoctorDaoI;
 import Pojo.Doctor;
-import Pojo.Medicine;
-import Pojo.Patient;
 
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 /**
  * Created by SELPHA on 14/2/2018.

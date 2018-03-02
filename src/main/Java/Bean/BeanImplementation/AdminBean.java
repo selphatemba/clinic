@@ -1,10 +1,8 @@
-package Bean;
+package Bean.BeanImplementation;
 
-import Dao.DoctorDao;
-import Dao.PatientDao;
-import Dao.UserDao;
+import Bean.BeanInterface.AdminBeanI;
 import Pojo.*;
-import Dao.AdminDao;
+import Dao.DaoImplementation.AdminDao;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;

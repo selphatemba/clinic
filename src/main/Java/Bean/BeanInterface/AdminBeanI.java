@@ -1,4 +1,4 @@
-package Bean;
+package Bean.BeanInterface;
 
 import Pojo.*;
 

@@ -1,7 +1,8 @@
 package Web;
 
-import Bean.BeanI;
-import Bean.UserBeanI;
+import Bean.BeanInterface.BeanI;
+import Bean.BeanInterface.UserBeanI;
+import Pojo.Patient;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static Bean.UserBeanI.User.PATIENT;
+import static Bean.BeanInterface.UserBeanI.User.PATIENT;
 
 /**
  * Created by SELPHA on 19/2/2018.
@@ -23,13 +24,21 @@ public class RegisterPatient extends HttpServlet {
     private BeanI beanI;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("patientBeanI",beanI);
-        req.getRequestDispatcher("Management.jsp").forward(req,resp);
+        req.getRequestDispatcher("PatientRegister.jsp").forward(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("patientBeanI",beanI);
-        req.getRequestDispatcher("Management.jsp").forward(req,resp);
+        Patient patient=new Patient();
+        if(req.getParameter("fname")!=null) {
+                patient.setFname(req.getParameter("fname"));
+                patient.setSname(req.getParameter("lname"));
+                patient.setIDnumber(Integer.parseInt(req.getParameter("idnumber")));
+                patient.setPid(req.getParameter("patientid"));
+                if (beanI.register(patient)) {
+                  resp.sendRedirect("/ClinicMis2/home");
+                }
+
+        }else resp.sendRedirect("/ClinicMis2/registerpatient");
     }
 }

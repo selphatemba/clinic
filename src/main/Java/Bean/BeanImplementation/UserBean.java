@@ -1,15 +1,15 @@
-package Bean;
+package Bean.BeanImplementation;
 
-import Dao.DaoI;
-import Dao.UserDao;
-import Dao.UserDaoI;
+import Bean.BeanInterface.BeanI;
+import Bean.BeanInterface.UserBeanI;
+import Dao.DaoInterface.DaoI;
+import Dao.DaoInterface.UserDaoI;
 import Pojo.User;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 
-import static Bean.UserBeanI.User.USER;
+import static Bean.BeanInterface.UserBeanI.User.USER;
 
 /**
  * Created by SELPHA on 19/2/2018.

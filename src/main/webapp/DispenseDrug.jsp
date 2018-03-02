@@ -18,9 +18,6 @@
 <div class="container">
     <div class="card card-container">
         <h2>Dispense Drug</h2><br><br>
-
-
-
         <form class="form-signin" action="PayForService.jsp" method="post">
             Patient ID:<input type="text" id="jobID" class="form-control" placeholder="Patient ID" required name="PatientID"/><br>
             Medication:<input type="text" id="inputPassword" class="form-control" placeholder="Medication"  name="medicine" required/><br>

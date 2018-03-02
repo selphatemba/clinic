@@ -1,19 +1,19 @@
-package Dao;
+package Dao.DaoImplementation;
 
-import Bean.UserBean;
+import Dao.DaoInterface.DaoI;
+import Dao.DaoInterface.UserDaoI;
 import Pojo.User;
 
 import javax.enterprise.context.RequestScoped;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 /**
  * Created by SELPHA on 17/2/2018.
  */
 @RequestScoped
 @UserDaoI
-public class UserDao implements DaoI{
+public class UserDao implements DaoI {
 DBUtil util=null;
 User u=null;
 ResultSet rs=null;

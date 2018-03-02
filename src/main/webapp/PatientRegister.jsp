@@ -15,7 +15,7 @@
         <h1 class="well">Patient Registration</h1>
         <div class="col-lg-12 well">
             <div class="row">
-                <form class="form-signin" id="form" action="/ClinicMis2/registration" method="post" onsubmit="return checkForm(this);">
+                <form class="form-signin" id="form" action="/ClinicMis2/registerpatient" method="post" onsubmit="return checkForm(this);">
                     <div class="col-sm-12">
                             <div class="col-sm-6 form-group">
                                 <label>First Name</label>

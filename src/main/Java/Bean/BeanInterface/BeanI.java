@@ -1,4 +1,4 @@
-package Bean;
+package Bean.BeanInterface;
 
 /**
  * Created by SELPHA on 26/2/2018.
