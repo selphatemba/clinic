@@ -104,7 +104,7 @@ public class AdminDao implements AdminInterface {
     //dispense drug
     public boolean dispenseDrug(Patient p, ArrayList<Medicine> medicines) {
         int k=0;
-        String sql="insert into pharmacy (patientId,medicine) values("+p.getPid()+"'"+medicines+"')";
+        String sql="insert into pharmacy (patientId,medicine) values('"+p.getPid()+"','"+medicines+"')";
         k=util.write(sql);
         if(k<0){
             return  false;
@@ -113,12 +113,13 @@ return true;
     }
 
     //arrayList of available medicine
-    public void createArrayListOfMedicine(){
+    public ArrayList<Medicine> createArrayListOfMedicine(){
         ArrayList<Medicine>medicines=new ArrayList<Medicine>();
         for (int i=0;i<500;i++){
             Medicine m=new Medicine();
             medicines.add(m);
         }
+        return medicines;
 
     }
 

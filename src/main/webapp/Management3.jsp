@@ -33,9 +33,9 @@
     booking.setP(patient);
 
     if(logic.bookPatientToDoctor(booking)){
-        out.print("Successfully booked doctor appointment");
+        response.sendRedirect("/ClinicMis2/home");
     }else{
-        out.print("Not booked in kindly try again");
+        response.sendRedirect("PatientBooking.jsp");
     }
 %>
 </body>

@@ -3985,173 +3985,185 @@
       <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="888" parent="88" name="Did">
+    <column id="888" parent="88" name="IDnumber">
       <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="889" parent="88" name="Did">
+      <Position>4</Position>
       <DataType>varchar(60)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="889" parent="88" name="doctorRegister_Did_uindex">
+    <index id="890" parent="88" name="doctorRegister_Did_uindex">
       <ColNames>Did</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="890" parent="88" name="PRIMARY">
+    <index id="891" parent="88" name="doctorregister_IDnumber_uindex">
+      <ColNames>IDnumber</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="892" parent="88" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Did</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="891" parent="88" name="doctorRegister_Did_uindex">
+    <key id="893" parent="88" name="doctorregister_IDnumber_uindex">
+      <ColNames>IDnumber</ColNames>
+      <UnderlyingIndexName>doctorregister_IDnumber_uindex</UnderlyingIndexName>
+    </key>
+    <key id="894" parent="88" name="doctorRegister_Did_uindex">
       <ColNames>Did</ColNames>
       <UnderlyingIndexName>doctorRegister_Did_uindex</UnderlyingIndexName>
     </key>
-    <column id="892" parent="89" name="patientId">
+    <column id="895" parent="89" name="patientId">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="893" parent="89" name="testResults">
+    <column id="896" parent="89" name="testResults">
       <Position>2</Position>
       <DataType>varchar(100)|0</DataType>
     </column>
-    <column id="894" parent="90" name="jobID">
+    <column id="897" parent="90" name="jobID">
       <Position>1</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="895" parent="90" name="password">
+    <column id="898" parent="90" name="password">
       <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="896" parent="91" name="fname">
+    <column id="899" parent="91" name="fname">
       <Position>1</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="897" parent="91" name="sname">
+    <column id="900" parent="91" name="sname">
       <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="898" parent="91" name="IDnumber">
+    <column id="901" parent="91" name="IDnumber">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="899" parent="91" name="Pid">
+    <column id="902" parent="91" name="Pid">
       <Position>4</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="900" parent="91" name="patientregister_IDnumber_uindex">
+    <index id="903" parent="91" name="patientregister_IDnumber_uindex">
       <ColNames>IDnumber</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="901" parent="91" name="PRIMARY">
+    <key id="904" parent="91" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Pid</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="902" parent="91" name="patientregister_IDnumber_uindex">
+    <key id="905" parent="91" name="patientregister_IDnumber_uindex">
       <ColNames>IDnumber</ColNames>
       <UnderlyingIndexName>patientregister_IDnumber_uindex</UnderlyingIndexName>
     </key>
-    <column id="903" parent="92" name="patientid">
+    <column id="906" parent="92" name="patientid">
       <Position>1</Position>
       <DataType>varchar(11)|0</DataType>
     </column>
-    <column id="904" parent="92" name="service">
+    <column id="907" parent="92" name="service">
       <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="905" parent="92" name="amount">
+    <column id="908" parent="92" name="amount">
       <Position>3</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="906" parent="93" name="patientid">
+    <column id="909" parent="93" name="patientid">
       <Position>1</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="907" parent="93" name="medicine">
+    <column id="910" parent="93" name="medicine">
       <Position>2</Position>
-      <DataType>varchar(100)|0</DataType>
+      <DataType>longtext|0</DataType>
     </column>
-    <column id="908" parent="94" name="patient">
+    <column id="911" parent="94" name="patient">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="909" parent="94" name="medicine">
+    <column id="912" parent="94" name="medicine">
       <Position>2</Position>
       <DataType>varchar(100)|0</DataType>
     </column>
-    <column id="910" parent="95" name="fname">
+    <column id="913" parent="95" name="fname">
       <Position>1</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="911" parent="95" name="lname">
+    <column id="914" parent="95" name="lname">
       <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="912" parent="95" name="town">
+    <column id="915" parent="95" name="town">
       <Position>3</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="913" parent="95" name="gender">
+    <column id="916" parent="95" name="gender">
       <Position>4</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="914" parent="95" name="title">
+    <column id="917" parent="95" name="title">
       <Position>5</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="915" parent="95" name="jobID">
+    <column id="918" parent="95" name="jobID">
       <Position>6</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="916" parent="95" name="phoneNumber">
+    <column id="919" parent="95" name="phoneNumber">
       <Position>7</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="917" parent="95" name="email">
+    <column id="920" parent="95" name="email">
       <Position>8</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="918" parent="95" name="password">
+    <column id="921" parent="95" name="password">
       <Position>9</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <key id="919" parent="95" name="PRIMARY">
+    <key id="922" parent="95" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>jobID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="920" parent="96" name="firstname">
+    <column id="923" parent="96" name="firstname">
       <Position>1</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="921" parent="96" name="secondname">
+    <column id="924" parent="96" name="secondname">
       <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="922" parent="96" name="email">
+    <column id="925" parent="96" name="email">
       <Position>3</Position>
       <DataType>varchar(60)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="923" parent="96" name="password">
+    <column id="926" parent="96" name="password">
       <Position>4</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="924" parent="96" name="PRIMARY">
+    <key id="927" parent="96" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>email</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="925" parent="97" name="Name">
+    <column id="928" parent="97" name="Name">
       <Position>1</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="926" parent="97" name="password">
+    <column id="929" parent="97" name="password">
       <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>

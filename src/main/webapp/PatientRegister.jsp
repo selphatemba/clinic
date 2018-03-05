@@ -19,20 +19,20 @@
                     <div class="col-sm-12">
                             <div class="col-sm-6 form-group">
                                 <label>First Name</label>
-                                <input type="text" placeholder="Enter First Name Here.." class="form-control" name="fname">
+                                <input type="text" placeholder="Enter First Name Here.." class="form-control" required name="fname">
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label>Second Name</label>
-                                <input type="text" placeholder="Enter Last Name Here.." class="form-control" name="lname">
+                                <input type="text" placeholder="Enter Last Name Here.." class="form-control" required name="lname">
                             </div>
                         <div class="row">
                             <div class="col-sm-4 form-group">
                                 <label>ID Number</label>
-                                <input type="text" placeholder="ID Number" class="form-control" name="idnumber">
+                                <input type="text" placeholder="ID Number" class="form-control" required name="idnumber">
                             </div>
                             <div class="col-sm-4 form-group">
                                 <label>Patient ID</label>
-                                <input type="text" placeholder="Patient ID" class="form-control" name="patientid">
+                                <input type="text" placeholder="Patient ID" class="form-control" required name="patientid">
                             </div>
                         <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">register</button>
                         <hr>

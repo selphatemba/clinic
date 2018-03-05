@@ -6,7 +6,16 @@ package Pojo;
 public class Doctor {
     private String fname;
     private String sname;
+    private int idnumber;
     private String Did;
+
+    public int getIdnumber() {
+        return idnumber;
+    }
+
+    public void setIdnumber(int idnumber) {
+        this.idnumber = idnumber;
+    }
 
     public String getFname() {
         return fname;

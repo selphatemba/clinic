@@ -1,11 +1,13 @@
 package Bean.BeanImplementation;
 
+import Bean.BeanInterface.Admin;
 import Bean.BeanInterface.AdminBeanI;
 import Pojo.*;
 import Dao.DaoImplementation.AdminDao;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
+import javax.inject.Qualifier;
 import java.util.ArrayList;
 
 /**
@@ -14,7 +16,7 @@ import java.util.ArrayList;
 
 //creates a managed bean called "mylogicbean"
 @RequestScoped
-@Named("mylogicbean")
+@Admin
 public class AdminBean implements AdminBeanI {
     AdminDao adminDao;
 
@@ -29,7 +31,7 @@ public class AdminBean implements AdminBeanI {
 
     public boolean bookPatientToDoctor(Booking b) {return adminDao.bookPatient(b);
     }
-    public void dispenseDrug(Patient p, ArrayList<Medicine> medicines) {
+    public boolean dispenseDrug(Patient p, ArrayList<Medicine> medicines) {return adminDao.dispenseDrug(p,medicines);
 
     }
     public boolean consultDoctor(Booking b, Doctor d) {
@@ -39,5 +41,8 @@ public class AdminBean implements AdminBeanI {
     public boolean runLabTest(Patient p, LabTest l) {
         return adminDao.runLabTest(p, l);
 
+    }
+    public ArrayList<Medicine> getAllMedicine() {
+     return adminDao.createArrayListOfMedicine();
     }
 }

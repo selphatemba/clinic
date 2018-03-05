@@ -28,7 +28,7 @@ public class DoctorDao implements DaoI {
         boolean doctoregistered = false;
         int k = 0;
         try {
-            String sql = "insert into doctorregister(fname,sname,Did) values('" + d.getFname() + "','" + d.getSname() + "','" + d.getDid() + "')";
+            String sql = "insert into doctorregister(fname,sname,IDnumber,Did) values('" + d.getFname() + "','" + d.getSname() + "'," +d.getIdnumber()+",'" +d.getDid() + "')";
             k = util.write(sql);
             util.conn.commit();
             if (k > 0) {
