@@ -6,10 +6,10 @@ import java.util.Date;
  * Created by SELPHA on 14/2/2018.
  */
 public class Medicine {
-    String name;
-    Date yom;
-    int ageLimit;
-    int quantity;
+    private String name;
+    private Date yom;
+    private int ageLimit;
+    private int quantity;
 
     public String getName() {
         return name;

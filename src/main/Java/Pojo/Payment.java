@@ -4,9 +4,9 @@ package Pojo;
  * Created by SELPHA on 14/2/2018.
  */
 public class Payment {
-    Patient p;
-    Service s;
-    Double amount;
+    private Patient p;
+    private Service s;
+    private Double amount;
 
     public Patient getP() {
         return p;

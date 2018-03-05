@@ -4,10 +4,10 @@ package Pojo;
  * Created by SELPHA on 14/2/2018.
  */
 public class Patient {
-    String fname;
-    String sname;
-    int IDnumber;
-    String Pid;
+    private String fname;
+    private String sname;
+    private int IDnumber;
+    private String Pid;
 
     public int getIDnumber() {
         return IDnumber;

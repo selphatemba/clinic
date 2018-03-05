@@ -4,9 +4,9 @@ package Pojo;
  * Created by SELPHA on 14/2/2018.
  */
 public class Doctor {
-    String fname;
-    String sname;
-    String Did;
+    private String fname;
+    private String sname;
+    private String Did;
 
     public String getFname() {
         return fname;

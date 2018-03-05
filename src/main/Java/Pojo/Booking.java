@@ -6,9 +6,9 @@ import java.util.Date;
  * Created by SELPHA on 14/2/2018.
  */
 public class Booking {
-    Doctor d;
-    Patient p;
-    Date bookingTime;
+    private Doctor d;
+    private Patient p;
+    private Date bookingTime;
 
     public Doctor getD() {
         return d;

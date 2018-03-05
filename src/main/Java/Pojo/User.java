@@ -4,15 +4,15 @@ package Pojo;
  * Created by SELPHA on 17/2/2018.
  */
 public class User {
-    String fname;
-    String lname;
-    String town;
-    Gender gender;
-    Title title;
-    int phoneNumber;
-    String email;
-    String jobId;
-    String password;
+    private String fname;
+    private String lname;
+    private String town;
+    private Gender gender;
+    private Title title;
+    private int phoneNumber;
+    private String email;
+    private String jobId;
+    private String password;
 
     public String getFname() {
         return fname;
