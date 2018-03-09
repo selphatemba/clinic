@@ -5,6 +5,7 @@ import Bean.BeanInterface.AdminBeanI;
 import Pojo.Medicine;
 import Pojo.Patient;
 
+import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,8 +20,7 @@ import java.util.ArrayList;
  */
 @WebServlet(urlPatterns = "/pharmacy")
 public class Pharmacy extends HttpServlet{
-    @Inject
-    @Admin
+    @EJB
     private AdminBeanI adminBeanI;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

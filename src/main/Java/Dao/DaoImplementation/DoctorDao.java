@@ -1,18 +1,20 @@
 package Dao.DaoImplementation;
 
 import Dao.DaoInterface.DaoI;
-import Dao.DaoInterface.DoctorDaoI;
+import Dao.DaoInterface.DaoIAnnotation;
 import Pojo.Doctor;
 
 import javax.enterprise.context.RequestScoped;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import static Dao.DaoInterface.DaoIAnnotation.User.DOCTOR;
+
 /**
  * Created by SELPHA on 14/2/2018.
  */
 @RequestScoped
-@DoctorDaoI
+@DaoIAnnotation(choice = DOCTOR)
 public class DoctorDao implements DaoI {
     DBUtil util = null;
     Doctor d=null;

@@ -2,11 +2,13 @@ package Bean.BeanInterface;
 
 import Pojo.*;
 
+import javax.ejb.Remote;
 import java.util.ArrayList;
 
 /**
  * Created by SELPHA on 14/2/2018.
  */
+@Remote
 public interface AdminBeanI {
     boolean payForServices(Payment p);
     boolean bookPatientToDoctor(Booking b);

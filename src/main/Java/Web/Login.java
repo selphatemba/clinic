@@ -1,10 +1,9 @@
 package Web;
 
 import Bean.BeanInterface.BeanI;
-import Bean.BeanInterface.UserBeanI;
 import Pojo.User;
 
-import javax.inject.Inject;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,15 +13,13 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import static Bean.BeanInterface.UserBeanI.User.USER;
 
 /**
  * Created by SELPHA on 21/2/2018.
  */
 @WebServlet(urlPatterns = "/login")
 public class Login extends HttpServlet {
-    @Inject
-    @UserBeanI(choice = USER)
+    @EJB
     private BeanI beanI;
     User user=new User();
     @Override

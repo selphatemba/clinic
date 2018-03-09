@@ -1,26 +1,27 @@
 package Bean.BeanImplementation;
 
 import Bean.BeanInterface.BeanI;
-import Bean.BeanInterface.UserBeanI;
 import Dao.DaoInterface.DaoI;
-import Dao.DaoInterface.UserDaoI;
+import Dao.DaoInterface.DaoIAnnotation;
 import Pojo.User;
 
+import javax.ejb.Remove;
+import javax.ejb.Stateful;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
-import static Bean.BeanInterface.UserBeanI.User.USER;
+
+import static Dao.DaoInterface.DaoIAnnotation.User.USER;
 
 /**
  * Created by SELPHA on 19/2/2018.
  */
 
 //creates a managed bean called "userbean"
-@RequestScoped
-@UserBeanI(choice = USER)
+@Stateful
 public class UserBean implements BeanI {
     @Inject
-    @UserDaoI
+    @DaoIAnnotation(choice = USER)
 
     DaoI daoI;
     User u=null;

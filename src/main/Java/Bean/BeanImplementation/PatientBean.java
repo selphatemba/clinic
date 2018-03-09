@@ -1,15 +1,14 @@
 package Bean.BeanImplementation;
 
 import Bean.BeanInterface.BeanI;
-import Bean.BeanInterface.UserBeanI;
 import Dao.DaoInterface.DaoI;
-import Dao.DaoInterface.PatientDaoI;
+import Dao.DaoInterface.DaoIAnnotation;
 import Pojo.Patient;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
-import static Bean.BeanInterface.UserBeanI.User.PATIENT;
+import static Dao.DaoInterface.DaoIAnnotation.User.PATIENT;
 
 /**
  * Created by SELPHA on 19/2/2018.
@@ -17,10 +16,9 @@ import static Bean.BeanInterface.UserBeanI.User.PATIENT;
 
 //creates a managed bean called "patientbean"
 @RequestScoped
-@UserBeanI(choice = PATIENT)
 public class PatientBean implements BeanI {
     @Inject
-    @PatientDaoI
+    @DaoIAnnotation(choice = PATIENT)
     DaoI daoI;
     Patient p=null;
 

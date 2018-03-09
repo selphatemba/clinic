@@ -1,11 +1,9 @@
 package Web;
 
 import Bean.BeanInterface.BeanI;
-import Bean.BeanInterface.UserBeanI;
 import Pojo.Doctor;
-import org.apache.taglibs.standard.lang.jstl.test.Bean1;
 
-import javax.inject.Inject;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,15 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static Bean.BeanInterface.UserBeanI.User.DOCTOR;
 
 /**
  * Created by SELPHA on 5/3/2018.
  */
 @WebServlet(urlPatterns = "/registerdoctor")
 public class RegisterDoctor extends HttpServlet{
-    @Inject
-    @UserBeanI(choice = DOCTOR)
+    @EJB
     private BeanI docterBeanI;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
