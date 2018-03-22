@@ -1,19 +1,19 @@
 package Bean.BeanInterface;
 
-import Pojo.*;
+import Entities.*;
 
-import javax.ejb.Remote;
+import javax.ejb.Local;
 import java.util.ArrayList;
 
 /**
  * Created by SELPHA on 14/2/2018.
  */
-@Remote
+@Local
 public interface AdminBeanI {
     boolean payForServices(Payment p);
     boolean bookPatientToDoctor(Booking b);
-    boolean dispenseDrug(Patient p,ArrayList<Medicine> medicines);
-    boolean consultDoctor(Booking b, Doctor d);
-    boolean runLabTest(Patient p, LabTest l);
+    boolean dispenseDrug(Dispensation dispensation);
+    boolean consultDoctor(Consultation consultation);
+    boolean runLabTest(TestResult testResult);
     ArrayList<Medicine>getAllMedicine();
 }

@@ -11,7 +11,7 @@
 <body>
 <div class="container">
     <div class="card card-container">
-        <form class="form-signin" action="/ClinicMis2/login" method="post">
+        <form class="form-signin" action="/ClinicMis2/ws/user/login" method="post">
             UserID:<input type="text" id="jobID" class="form-control" placeholder="User ID" required name="userid"/><br>
             Password:<input type="Password" id="inputPassword" class="form-control" placeholder="password"  name="password" required/><br>
             <div id="remember" class="checkbox">

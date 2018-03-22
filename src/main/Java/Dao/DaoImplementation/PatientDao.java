@@ -2,11 +2,16 @@ package Dao.DaoImplementation;
 
 import Dao.DaoInterface.DaoI;
 import Dao.DaoInterface.DaoIAnnotation;
-import Pojo.Patient;
+import Entities.Patient;
 
 import javax.enterprise.context.RequestScoped;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static Dao.DaoInterface.DaoIAnnotation.User.PATIENT;
 
@@ -16,69 +21,51 @@ import static Dao.DaoInterface.DaoIAnnotation.User.PATIENT;
 @RequestScoped
 @DaoIAnnotation(choice = PATIENT)
 public class PatientDao implements DaoI {
-    DBUtil util=null;
+
+    @PersistenceContext(unitName = "clinic")
+    private EntityManager entityManager;
     Patient p=null;
-    ResultSet rs=null;
 
     public PatientDao() {
-        util = new DBUtil();
+        p=new Patient();
     }
-
 
     //create a patient
     public boolean insert(Object o) {
         p=(Patient) o;
-        boolean loggedin=false;
-        int k =0;
         try {
-            String sql="insert into patientregister (fname,sname,IDnumber,Pid) values('"+p.getFname()+"','"+p.getSname()+"','"+p.getIDnumber()+"','"+p.getPid()+"')";
-            k = util.write(sql);
-            util.conn.commit();
-            if (k>0) {
-                loggedin = true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+            entityManager.persist(p);
+        }catch (PersistenceException p){
+            p.printStackTrace();
+            return false;
         }
-        return loggedin;
+        return true;
     }
 
     //update patient
     public boolean update(Object o) {
         p=(Patient) o;
-        boolean updated=false;
-        int k=0;
         try {
-            String n="update patientregister set fname="+p.getFname()+"sname="+p.getSname()+"IDnumber="+p.getIDnumber()+"Pid="+p.getPid();
-            ResultSet rs=util.read(n);
-            k=util.write(n);
-            util.conn.commit();
-            if(k>0){
-                updated=true;
-            }
-        }catch (SQLException s){
-            s.printStackTrace();
+            p=entityManager.find(Patient.class,p.getIDnumber());
+            entityManager.merge(p);
+        }catch (PersistenceException p){
+            p.printStackTrace();
+            return false;
         }
-        return updated;
+        return true;
     }
 
 
     //delete patient
     public boolean delete(Object o) {
         p= (Patient) o;
-        boolean patientdeleted=false;
-        int k=0;
-        try {
-            String sql="delete from patientregister where Pid='"+p.getPid()+"'";
-            k=util.write(sql);
-            util.conn.commit();
-            if(k>0){
-                patientdeleted=true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        try{
+            entityManager.remove(p);
+        }catch (PersistenceException p){
+            p.printStackTrace();
+            return false;
         }
-        return patientdeleted;
+        return true;
     }
 
     //read patient
@@ -90,46 +77,38 @@ public class PatientDao implements DaoI {
     //find a patient by ID
     public boolean findById(Object o) {
         p=(Patient) o;
-        boolean read=false;
-        int k=0;
-        try {
-            String s="select * from patientregister where Pid='"+p.getPid()+"'";
-            rs=util.read(s);
-            while (rs.next()){
-                read=true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        try{
+            entityManager.find(Patient.class,p.getIDnumber());
+        }catch (PersistenceException p){
+            p.printStackTrace();
+            return false;
         }
-        return read;}
+        return true;
+       }
 
         //find all patients
-    public ResultSet findAll(Object o) {
+    public List<Object> findAll(Object o) {
         p=(Patient) o;
+        List<Object>patients=new ArrayList<Object>();
         try {
-            String s="select * from patientregister";
-            rs=util.read(s);
-            while (rs.next()){
-                return rs;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+            String s="select p from Patient p";
+            patients=entityManager.createQuery(s).getResultList();
+        }catch (PersistenceException p){
+            p.printStackTrace();
         }
-        return rs;
+        return patients;
     }
 
     //count all patients
     public int countAll(Object o) {
         p=(Patient) o;
-        int count=0;
+        List<Object>patients=new ArrayList<Object>();
         try {
-            String s="select count(*) from patientregister";
-            rs=util.read(s);
-            while (rs.next()){
-                count++;}
-        } catch (SQLException e) {
-            e.printStackTrace();
+            String s="select p from Patient p";
+            patients=entityManager.createQuery(s).getResultList();
+        }catch (PersistenceException p){
+            p.printStackTrace();
         }
-        return  count;
+        return patients.size();
     }
 }

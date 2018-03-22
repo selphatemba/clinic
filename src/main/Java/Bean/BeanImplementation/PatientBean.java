@@ -1,11 +1,14 @@
 package Bean.BeanImplementation;
 
-import Bean.BeanInterface.BeanI;
+import Bean.BeanInterface.PatientBeanI;
 import Dao.DaoInterface.DaoI;
 import Dao.DaoInterface.DaoIAnnotation;
-import Pojo.Patient;
+import Entities.Patient;
 
-import javax.enterprise.context.RequestScoped;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import static Dao.DaoInterface.DaoIAnnotation.User.PATIENT;
@@ -15,34 +18,32 @@ import static Dao.DaoInterface.DaoIAnnotation.User.PATIENT;
  */
 
 //creates a managed bean called "patientbean"
-@RequestScoped
-public class PatientBean implements BeanI {
+@Stateless
+public class PatientBean implements PatientBeanI {
     @Inject
     @DaoIAnnotation(choice = PATIENT)
     DaoI daoI;
     Patient p=null;
 
     public PatientBean() {
-        p=new Patient();
+       // p=new Patient();
     }
 
     //register patient
-    public boolean register(Object o) {
-        p= (Patient) o;
+    @PostConstruct
+    public void register(){
+    }
+
+    public boolean register(Patient p) {
         return daoI.insert(p);
     }
 
-    public boolean login(Object o) {
-        return false;
-    }
-
-    public boolean edit(Object o) {
-        p= (Patient) o;
+    public boolean edit(Patient p) {
         return daoI.update(p);
     }
 
-    public boolean logout(Object o) {
-        return false;
+  @PreDestroy
+    public void logout(){
     }
 }
 

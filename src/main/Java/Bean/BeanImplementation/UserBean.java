@@ -1,13 +1,14 @@
 package Bean.BeanImplementation;
 
-import Bean.BeanInterface.BeanI;
+import Bean.BeanInterface.UserBeanI;
 import Dao.DaoInterface.DaoI;
 import Dao.DaoInterface.DaoIAnnotation;
-import Pojo.User;
+import Entities.User;
 
-import javax.ejb.Remove;
-import javax.ejb.Stateful;
-import javax.enterprise.context.RequestScoped;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 
@@ -18,8 +19,8 @@ import static Dao.DaoInterface.DaoIAnnotation.User.USER;
  */
 
 //creates a managed bean called "userbean"
-@Stateful
-public class UserBean implements BeanI {
+@Stateless
+public class UserBean implements UserBeanI {
     @Inject
     @DaoIAnnotation(choice = USER)
 
@@ -30,23 +31,27 @@ public class UserBean implements BeanI {
         u=new User();
     }
 
-    public boolean register(Object o) {
-        u= (User) o;
+   @PostConstruct
+    public void register(){
+   }
+
+    public boolean register(User u) {
         return daoI.insert(u);
     }
 
-    public boolean login(Object o) {
-        u= (User) o;
-        return daoI.find(u);
+    //@LoginInterceptorB
+    public void login(User u) {
+         daoI.find(u);
     }
 
-    public boolean edit(Object o) {
-        u= (User) o;
+    public boolean edit(User u) {
         return daoI.update(u);
     }
-
-    public boolean logout(Object o) {
-        u= (User) o;
+    public boolean logout(User u) {
         return daoI.find(u);
+    }
+
+    @PreDestroy
+    public void logout(){
     }
 }

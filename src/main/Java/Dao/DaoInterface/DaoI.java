@@ -1,7 +1,7 @@
 package Dao.DaoInterface;
 
-import java.sql.ResultSet;
-import java.util.ArrayList;
+import Entities.User;
+import java.util.List;
 
 /**
  * Created by SELPHA on 22/2/2018.
@@ -12,6 +12,6 @@ public interface DaoI {
     boolean delete(Object o);
     boolean find(Object o);
     boolean findById(Object o);
-    ResultSet findAll(Object o);
+    List<Object> findAll(Object o);
     int countAll(Object o);
 }

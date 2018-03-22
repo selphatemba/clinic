@@ -18,7 +18,7 @@
 <div class="container">
     <div class="card card-container">
         <h2>Dispense Drug</h2><br><br>
-        <form class="form-signin" action="/ClinicMis2/pharmacy" method="post">
+        <form class="form-signin" action="/ClinicMis2/ws/admin/pharmacy" method="post">
             Patient ID:<input type="text" id="jobID" class="form-control" placeholder="Patient ID" required name="PatientID"/><br>
             Medication:<input type="text" id="inputPassword" class="form-control" placeholder="Medication"  name="medicine" required/><br>
             <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Dispense</button>

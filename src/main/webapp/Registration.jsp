@@ -15,7 +15,7 @@
     <h1 class="well">Registration Form</h1>
     <div class="col-lg-12 well">
         <div class="row">
-            <form class="form-signin" id="form" action="/ClinicMis2/registration" method="post" onsubmit="return checkForm(this);">
+            <form class="form-signin" id="form1" name="form1" action="/ClinicMis2/ws/user/registration" method="post" onsubmit="return checkForm(this);">
                 <div class="col-sm-12">
                     <div class="row">
                         <div class="col-sm-6 form-group">
@@ -56,8 +56,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Phone Number</label>
-                        <input type="text" placeholder="Enter Phone Number Here.." class="form-control" name="phonenumber">
+                        <label>ID Number</label>
+                        <input type="text" placeholder="Enter Phone Number Here.." class="form-control" name="idnumber">
                     </div>
                     <div class="form-group">
                         <label>Email Address</label>

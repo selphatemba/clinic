@@ -14,16 +14,16 @@
     <header><%@include file="Header.jsp"%></header>
 </head>
 <body>
-<%@page import="Pojo.Payment" %>
+<%@page import="Entities.Payment" %>
 <%@page import="Bean.BeanImplementation.AdminBean" %>
-<%@ page import="Pojo.Service" %>
-<%@ page import="Pojo.Patient" %>
+<%@ page import="Entities.Service" %>
+<%@ page import="Entities.Patient" %>
 <%@page errorPage="MyErrorPage.jsp" %>
 
 <%!
     Payment pay=new Payment();
     AdminBean logic=new AdminBean();
-    Patient p=new Patient();
+    Patient p=null;
 %>
 <%
     p.setPid(request.getParameter("PatientID"));

@@ -4,22 +4,22 @@
 
 
 
-function checkForm(form)
+function checkForm(form1)
 {
-    if(form.jobid.value === "") {
+    if(form1.jobid.value === "") {
         alert("Error: Username cannot be blank!");
-        form.jobid.focus();
+        form1.jobid.focus();
         return false;
     }
     re = /^\w+$/;
-    if(!re.test(form.jobid.value)) {
+    if(!re.test(form1.jobid.value)) {
         alert("Error: Username must contain only letters, numbers and underscores!");
-        form.jobid.focus();
+        form1.jobid.focus();
         return false;
     }
-    if(form.password.value !== "" && form.password.value === form.password2.value) {
+    if(form1.password.value !== "" && form1.password.value === form1.password2) {
         alert("Error: Please check that you've entered and confirmed your password!");
-        form.password.focus();
+        form1.password.focus();
         return false;}
         else
 

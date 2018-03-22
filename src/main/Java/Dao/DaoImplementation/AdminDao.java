@@ -1,122 +1,97 @@
 package Dao.DaoImplementation;
 
 import Dao.DaoInterface.AdminInterface;
-import Pojo.*;
+import Entities.*;
 
 
-import java.sql.*;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceException;
 import java.util.ArrayList;
 
 /**
  * Created by SELPHA on 14/2/2018.
  */
 public class AdminDao implements AdminInterface {
-    DBUtil util=null;
+    private EntityManager entityManager;
 
-//constructor creates util object
-    public AdminDao() {
-        util=new DBUtil();
+    public AdminDao(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
 
-//book patient
-    public boolean bookPatient(Booking b) {
-        boolean bookpatient=false;
-        int k=0;
-        try {
-            String sql="insert into bookpatient (doctorid,patientid) values('"+b.getD()+"','"+b.getP()+"')";
-            k= util.write(sql);
-            util.conn.commit();
-            if(k>0){
-                bookpatient=true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
-        return bookpatient;
+    //book patient
+    public boolean bookPatient(Booking b) {
+        try {
+            entityManager.persist(b);
+        }catch (PersistenceException p){
+            p.printStackTrace();
+            return false;
+        }
+        return true;
     }
 
     //doctor consultation
-    public boolean consultDoctor(Booking b, Doctor d) {
-        boolean patientSeen=false;
-        int k=0;
-        try{
-            String sql1="insert into consultDoctor (patientid,doctotid) values('"+b.getD()+"','"+b.getP()+"',";
-            k=util.write(sql1);
-            util.conn.commit();
-            if(k>0){
-                patientSeen=true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+    public boolean consultDoctor(Consultation c) {
+        try {
+            entityManager.persist(c);
+        }catch (PersistenceException p){
+            p.printStackTrace();
+            return false;
         }
+        return true;
 
-        return patientSeen;
     }
 
     //prescribe drug
-    public boolean prescribeDrug(Patient p, ArrayList<Medicine> medicines) {
-        int k=0;
-        boolean prescribeDrug=false;
+    public boolean prescribeDrug(Prescription p) {
         try {
-            String sql="insert into prescriptions (patient,medicine)values("+p.getPid()+",'"+medicines+"')";
-            k=util.write(sql);
-            util.conn.commit();
-            if(k>0){
-            prescribeDrug=true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+            entityManager.persist(p);
+        }catch (PersistenceException pe){
+            pe.printStackTrace();
+            return false;
         }
+        return true;
 
-        return prescribeDrug;
     }
 
     //run lab test
-    public boolean runLabTest(Patient p, LabTest l) {
-        boolean runLabTest=false;
+    public boolean runLabTest(TestResult testResult) {
         try {
-            String sql="insert into labtest (patientId,testResults)values("+p.getPid()+","+LabTest.values()+")";
-            util.write(sql);
-            util.conn.commit();
-            runLabTest=true;
-        } catch (SQLException e) {
-            e.printStackTrace();
+            entityManager.persist(testResult);
+        }catch (PersistenceException p){
+            p.printStackTrace();
+            return false;
         }
-        return runLabTest;
+        return true;
     }
 
     //patient pay for services
     public boolean pay(Payment p) {
-        boolean paid=false;
         try {
-            String s="insert into payment(patientid,service,amount)values ('"+p.getP()+"','"+p.getS()+"',"+p.getAmount()+")";
-            util.write(s);
-            util.conn.commit();
-            paid=true;
-        } catch (SQLException e) {
-            e.printStackTrace();
+            entityManager.persist(p);
+        }catch (PersistenceException pex){
+            pex.printStackTrace();
+            return false;
         }
-
-        return paid;
+        return true;
     }
 
     //dispense drug
-    public boolean dispenseDrug(Patient p, ArrayList<Medicine> medicines) {
-        int k=0;
-        String sql="insert into pharmacy (patientId,medicine) values('"+p.getPid()+"','"+medicines+"')";
-        k=util.write(sql);
-        if(k<0){
-            return  false;
+    public boolean dispenseDrug(Dispensation dispensation) {
+        try {
+            entityManager.persist(dispensation);
+        }catch (PersistenceException p){
+            p.printStackTrace();
+            return false;
         }
-return true;
+        return true;
     }
 
     //arrayList of available medicine
     public ArrayList<Medicine> createArrayListOfMedicine(){
         ArrayList<Medicine>medicines=new ArrayList<Medicine>();
         for (int i=0;i<500;i++){
-            Medicine m=new Medicine();
+           Medicine m=new Medicine();
             medicines.add(m);
         }
         return medicines;

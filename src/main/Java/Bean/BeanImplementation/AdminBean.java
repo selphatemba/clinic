@@ -1,13 +1,13 @@
 package Bean.BeanImplementation;
 
-import Bean.BeanInterface.Admin;
 import Bean.BeanInterface.AdminBeanI;
-import Pojo.*;
+import Entities.*;
 import Dao.DaoImplementation.AdminDao;
 
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
-import javax.inject.Qualifier;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.ejb.*;
+import javax.persistence.EntityManager;
 import java.util.ArrayList;
 
 /**
@@ -15,14 +15,15 @@ import java.util.ArrayList;
  */
 
 //creates a managed bean called "mylogicbean"
-@RequestScoped
-@Admin
+@Stateless
 public class AdminBean implements AdminBeanI {
+    private  EntityManager entityManager;
     AdminDao adminDao;
-
-
+@PostConstruct
+   public void start(){
+   }
     public AdminBean() {
-        adminDao=new AdminDao();
+        adminDao=new AdminDao(entityManager);
     }
 
     public boolean payForServices(Payment p) {
@@ -31,18 +32,23 @@ public class AdminBean implements AdminBeanI {
 
     public boolean bookPatientToDoctor(Booking b) {return adminDao.bookPatient(b);
     }
-    public boolean dispenseDrug(Patient p, ArrayList<Medicine> medicines) {return adminDao.dispenseDrug(p,medicines);
+    public boolean dispenseDrug(Dispensation dispensation) {return adminDao.dispenseDrug(dispensation);
 
     }
-    public boolean consultDoctor(Booking b, Doctor d) {
-        return adminDao.consultDoctor(b, d);
+    public boolean consultDoctor(Consultation consultation) {
+        return adminDao.consultDoctor(consultation);
     }
 
-    public boolean runLabTest(Patient p, LabTest l) {
-        return adminDao.runLabTest(p, l);
+    public boolean runLabTest(TestResult testResult) {
+        return adminDao.runLabTest(testResult);
 
     }
     public ArrayList<Medicine> getAllMedicine() {
      return adminDao.createArrayListOfMedicine();
+    }
+
+   @PreDestroy
+    public void finish() {
+
     }
 }

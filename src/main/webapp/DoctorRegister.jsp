@@ -25,7 +25,7 @@
                     <div class="col-sm-12">
                         <div class="col-sm-6 form-group">
                             <label>First Name</label>
-                            <input type="text" placeholder="Enter First Name Here.." class="form-control" name="firsrname">
+                            <input type="text" placeholder="Enter First Name Here.." class="form-control" name="firstname">
                         </div>
                         <div class="col-sm-6 form-group">
                             <label>Second Name</label>

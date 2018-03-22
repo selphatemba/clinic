@@ -2,11 +2,15 @@ package Dao.DaoImplementation;
 
 import Dao.DaoInterface.DaoI;
 import Dao.DaoInterface.DaoIAnnotation;
-import Pojo.Doctor;
+import Entities.Doctor;
+
 
 import javax.enterprise.context.RequestScoped;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static Dao.DaoInterface.DaoIAnnotation.User.DOCTOR;
 
@@ -16,67 +20,50 @@ import static Dao.DaoInterface.DaoIAnnotation.User.DOCTOR;
 @RequestScoped
 @DaoIAnnotation(choice = DOCTOR)
 public class DoctorDao implements DaoI {
-    DBUtil util = null;
-    Doctor d=null;
-    ResultSet rs=null;
+    @PersistenceContext(unitName = "clinic")
+            private EntityManager entityManager;
 
+    Doctor d=null;
     public DoctorDao() {
-        util = new DBUtil();
+        d=new Doctor();
     }
 
     //create doctor
     public boolean insert(Object o) {
         d= (Doctor) o;
-        boolean doctoregistered = false;
-        int k = 0;
         try {
-            String sql = "insert into doctorregister(fname,sname,IDnumber,Did) values('" + d.getFname() + "','" + d.getSname() + "'," +d.getIdnumber()+",'" +d.getDid() + "')";
-            k = util.write(sql);
-            util.conn.commit();
-            if (k > 0) {
-                doctoregistered = true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+            entityManager.persist(d);
+        }catch (PersistenceException p){
+            p.printStackTrace();
+            return false;
         }
-        return doctoregistered;
+        return true;
     }
 
     //update doctor
     public boolean update(Object o) {
         d= (Doctor) o;
-        boolean updated=false;
-        int k=0;
         try {
-            String n="update doctorregister set fname='"+d.getFname()+"' sname='"+d.getSname()+"' Did='"+d.getDid()+"'";
-            rs=util.read(n);
-            k=util.write(n);
-            util.conn.commit();
-            if(k>0){
-                updated=true;
-            }
-        }catch (SQLException s){
-            s.printStackTrace();
+            d=entityManager.find(Doctor.class,d.getIdnumber());
+            entityManager.merge(d);
+        }catch (PersistenceException p){
+            p.printStackTrace();
+            return false;
         }
-        return updated;
+        return true;
     }
 
     //delete a doctor
     public boolean delete(Object o) {
         d= (Doctor) o;
-        boolean doctordeleted=false;
-        int k=0;
-        try {
-            String sql="delete from doctorregister where Did='"+d.getDid()+"'";
-            k=util.write(sql);
-            util.conn.commit();
-            if(k>0){
-                doctordeleted=true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        try{
+            entityManager.remove(d);
+        }catch (PersistenceException p){
+            p.printStackTrace();
+            return false;
         }
-        return doctordeleted;
+        return true;
+
     }
 
     public boolean find(Object o) {
@@ -86,51 +73,43 @@ public class DoctorDao implements DaoI {
     //Find a doctor by Doctor ID
     public boolean findById(Object o) {
         d= (Doctor) o;
-        boolean read=false;
-        int k=0;
-        try {
-            String s="select * from doctorregister where jobID='"+d.getDid()+"'";
-            rs=util.read(s);
-            while (rs.next()){
-                read=true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        try{
+            entityManager.find(Doctor.class,d.getIdnumber());
+        }catch (PersistenceException p){
+            p.printStackTrace();
+            return false;
         }
-        return read;
+        return true;
     }
 
 
     //Find all doctors
-    public ResultSet findAll(Object o) {
+    public List<Object> findAll(Object o) {
         d= (Doctor) o;
+        List<Object>doctors=new ArrayList<Object>();
         try {
-            String s="select * from doctorregister";
-            rs=util.read(s);
-            while (rs.next()){
-                return rs;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+            String s="select d from Doctor d";
+            doctors=entityManager.createQuery(s).getResultList();
+        }catch (PersistenceException p){
+            p.printStackTrace();
         }
-        return rs;
+        return doctors;
+
     }
 
     //count all doctors
     public int countAll(Object o) {
         d= (Doctor) o;
-        int count=0;
+        List<Object>doctorList=new ArrayList<Object>();
         try {
-            String s="select count(*) from doctorregister";
-            rs=util.read(s);
-            while (rs.next()){
-                count++;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+            String s="select d from Doctor d";
+            doctorList=entityManager.createQuery(s).getResultList();
+        }catch (PersistenceException p){
+            p.printStackTrace();
         }
-        return  count;
+        return doctorList.size();
     }
-}
+    }
+
 
 

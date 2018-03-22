@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<title>login page</title>
+<title>patient payment</title>
 <center><%@include file="Header.jsp"%></center>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/custom.css">
@@ -17,10 +17,10 @@
 <body>
 <div class="container">
     <div class="card card-container">
-        <form class="form-signin" action="PayForService.jsp" method="post">
+        <form class="form-signin" action="/ClinicMis2/ws/admin/payment" method="post">
             PatientID:<input type="text" id="jobID" class="form-control" placeholder="Patient ID" required name="PatientID"/><br>
             Service:<input type="text" id="inputPassword" class="form-control" placeholder="Consultation,LabTest,Medicine"  name="service" required/><br>
-            Amount:<input type="text" id="jobID" class="form-control" placeholder="User ID" required name="Amount"/><br>
+            Amount:<input type="text" id="jobID" class="form-control" placeholder="Amount" required name="Amount"/><br>
             <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Pay</button>
 
             <hr>

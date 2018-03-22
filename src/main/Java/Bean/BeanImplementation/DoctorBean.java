@@ -1,11 +1,13 @@
 package Bean.BeanImplementation;
 
-import Bean.BeanInterface.BeanI;
+import Bean.BeanInterface.DoctorBeanI;
 import Dao.DaoInterface.DaoI;
 import Dao.DaoInterface.DaoIAnnotation;
-import Pojo.Doctor;
+import Entities.Doctor;
 
-import javax.enterprise.context.RequestScoped;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import static Dao.DaoInterface.DaoIAnnotation.User.DOCTOR;
@@ -15,31 +17,31 @@ import static Dao.DaoInterface.DaoIAnnotation.User.DOCTOR;
  */
 
 //creates a managed bean called "doctorbean"
-@RequestScoped
-public class DoctorBean implements BeanI {
+@Stateless(name = "doctorBean")
+public class DoctorBean implements DoctorBeanI {
     @Inject
     @DaoIAnnotation(choice = DOCTOR)
     DaoI daoI;
     Doctor d=null;
 
     public DoctorBean() {
-        d=new Doctor();
+
+        //d=new Doctor();
     }
 
-    public boolean register(Object o) {
-        d= (Doctor) o;
+    @PostConstruct
+    public void register(){}
+
+    public boolean register(Doctor d) {
         return daoI.insert(d);
     }
 
-    public boolean login(Object o) {
-        return false;
-    }
-
-    public boolean edit(Object o) {
+    public boolean edit(Doctor d) {
         return daoI.update(d);
     }
 
-    public boolean logout(Object o) {
-        return false;
+
+    @PreDestroy
+    public void logout(){
     }
 }
