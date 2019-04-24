@@ -1,12 +1,15 @@
-package Bean.BeanImplementation;
+package main.Java.Bean.BeanImplementation;
 
 import Bean.BeanInterface.AdminBeanI;
-import Entities.*;
 import Dao.DaoImplementation.AdminDao;
+import Entities.Booking;
+import Entities.Consultation;
+import Entities.Dispensation;
+import Entities.Payment;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.ejb.*;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
 
@@ -39,11 +42,11 @@ public class AdminBean implements AdminBeanI {
         return adminDao.consultDoctor(consultation);
     }
 
-    public boolean runLabTest(TestResult testResult) {
+    public boolean runLabTest(Entities.TestResult testResult) {
         return adminDao.runLabTest(testResult);
 
     }
-    public ArrayList<Medicine> getAllMedicine() {
+    public ArrayList<Entities.Medicine> getAllMedicine() {
      return adminDao.createArrayListOfMedicine();
     }
 

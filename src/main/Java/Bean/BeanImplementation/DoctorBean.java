@@ -1,4 +1,4 @@
-package Bean.BeanImplementation;
+package main.Java.Bean.BeanImplementation;
 
 import Bean.BeanInterface.DoctorBeanI;
 import Dao.DaoInterface.DaoI;

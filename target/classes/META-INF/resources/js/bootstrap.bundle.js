@@ -3272,7 +3272,7 @@ function inner(data) {
  */
 
 /**
- * Modifiers are plugins used to alter the behavior of your poppers.<br />
+ * Modifiers are pluginRepositorys used to alter the behavior of your poppers.<br />
  * Popper.js uses a set of 9 modifiers to provide all the basic functionalities
  * needed by the library.
  *

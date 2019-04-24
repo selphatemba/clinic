@@ -8,7 +8,7 @@ import javax.enterprise.event.Observes;
  */
 @RequestScoped
 public class DoctorLoginObserver {
-    public void notifyAdmin(@Observes UserBean userBean){
+    public void notifyAdmin(@Observes Bean.BeanImplementation.UserBean userBean){
         System.out.println("A doctor just logged in!");
     }
 }
